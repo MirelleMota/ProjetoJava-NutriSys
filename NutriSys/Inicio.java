@@ -1,5 +1,6 @@
 package NutriSys;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class Inicio {
     private float peso;
     private float altura;
     private double IMC;
+    private ArrayList <String> comentario;
 
 
     public Inicio(String nome, int idade, String sexo, float peso, float altura, double IMC)
@@ -24,9 +26,18 @@ public class Inicio {
         this.peso=peso;
         this.altura=altura;
         this.IMC=IMC;
-
-    }	
-	
+        comentario = new ArrayList<String>();
+    }
+    
+    public ArrayList<String> getComentario() {
+		return comentario;
+	}
+    String comment(){
+        System.out.printf("Escreve um comentário sobre sua dieta: ");
+        String s = read.next();
+        //s = read.nextLine();
+        return s;
+    }
     public String getNome() {
         return nome;
     }
@@ -98,16 +109,19 @@ public class Inicio {
         	
         	System.out.println("\n3- Outro");
         	
-        	read.nextInt();
+        	gen = read.nextInt();
         	switch(gen) {
         	case 1:
         		System.out.println("\nMasculino");
+        		setSexo("Masculino");
         		break;
         	case 2:
         		System.out.println("\nFeminino");
+        		setSexo("Feminino");
         		break;
         	case 3:
         		System.out.println("\nOutros");
+        		setSexo("Outros");
         		break;
         		
         	}
@@ -144,7 +158,7 @@ public class Inicio {
 	}
 	
 	public void alterarDados() {
-		System.out.println("\n\n-----AlteraÃ§Ã£o de Dados-----");
+		System.out.println("\n\n-----Alteração de Dados-----");
 		System.out.print("\nEntre com seu nome: ");
 	        String x = read.next();
 	        setNome(x);
@@ -153,9 +167,33 @@ public class Inicio {
 	        int y = read.nextInt();
 	        setIdade(y);
 	        
-	        System.out.print("\nEntre com seu sexo: ");
+	        System.out.print("\nEscolha o seu gênero: ");
+        	System.out.println("\n1- Masculino");
+        	
+        	System.out.println("\n2- Feminino");
+        	
+        	System.out.println("\n3- Outro");
+        	
+        	int gen = read.nextInt();
+        	switch(gen) {
+        	case 1:
+        		System.out.println("\nMasculino");
+        		setSexo("Masculino");
+        		break;
+        	case 2:
+        		System.out.println("\nFeminino");
+        		setSexo("Feminino");
+        		break;
+        	case 3:
+        		System.out.println("\nOutros");
+        		setSexo("Outros");
+        		break;
+        		
+        	}
+	        
+	        /*System.out.print("\nEntre com seu sexo: ");
 	        String z= read.next();
-	        setSexo(z);
+	        setSexo(z);*/
 	        
 	        System.out.print("\nEntre com seu peso: ");
 	        float p= read.nextFloat();

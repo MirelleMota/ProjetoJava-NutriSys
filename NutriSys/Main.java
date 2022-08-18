@@ -1,5 +1,6 @@
 package NutriSys;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import NutriSys.Inicio;
 import NutriSys.Dieta;
@@ -25,7 +26,9 @@ public class Main {
 			System.out.println("2 - Visualizar Minha dieta");
 			System.out.println("3 - Ver minha Ficha Cadastral");
 			System.out.println("4 - Alterar minha Ficha Cadastral");
-			System.out.println("5 - Sair");
+			System.out.println("5 - Deixar um comentário sobre a sua dieta");
+			System.out.println("6 - Visualizar comentários");
+			System.out.println("7 - Sair");
 			int x = read.nextInt();
 
 			if (x == 1) {
@@ -43,11 +46,11 @@ public class Main {
 				else if (IMC >= 24 && IMC < 30) {
 					System.out.printf("\nVocê esta Levemente acima do peso " + "\nSeu IMC é: %.2f \n", IMC);
 				} else if (IMC >= 30 && IMC < 35) {
-					System.out.printf("\nVocê está com Obsidade grau I " + "\nSeu IMC é: %.2f \n", IMC);
+					System.out.printf("\nVocê está com Obesidade grau I " + "\nSeu IMC é: %.2f \n", IMC);
 				} else if (IMC >= 35 && IMC < 40) {
-					System.out.printf("\nVocê está com Obsidade grau II " + "\nSeu IMC é: %.2f \n", IMC);
+					System.out.printf("\nVocê está com Obesidade grau II " + "\nSeu IMC é: %.2f \n", IMC);
 				} else {
-					System.out.printf("\nVocê está com Obsidade grau III" + "\nSeu IMC é: %.2f \n", IMC);
+					System.out.printf("\nVocê está com Obesidade grau III" + "\nSeu IMC é: %.2f \n", IMC);
 				}
 
 			}
@@ -88,6 +91,21 @@ public class Main {
 			}
 
 			if (x == 5) {
+
+				String s = inicio.comment();
+				inicio.getComentario().add(s + " ---- Escrito por: " + inicio.getNome());
+				// System.out.println(inicio.getComentario());
+				System.out.println("Muito Obrigado! Sua opinião é muito importante para nós!");
+			}
+
+			if (x == 6) {
+
+				for (int j = 0; j < inicio.getComentario().size(); j++) {
+					System.out.println(inicio.getComentario().get(j));
+
+				}
+			}
+			if (x == 7) {
 				break;
 			}
 		}
